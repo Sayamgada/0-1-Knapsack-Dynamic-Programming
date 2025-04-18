@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>0/1 Knapsack Problem Visualization</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="container py-4">
+        <header class="text-center mb-5">
+            <h1 class="display-5 fw-bold">0/1 Knapsack Problem Dynamic Programming</h1>
+        </header>
+
+        <!-- Input Parameters -->
+        <div class="card mb-4">
+            <div class="card-header bg-primary text-white">
+                <h2 class="h5 mb-0">Input Parameters</h2>
+            </div>
+            <div class="card-body">
+                <form id="knapsackForm">
+                    <div class="mb-3">
+                        <label for="capacity" class="form-label">Knapsack Capacity</label>
+                        <input type="number" class="form-control" id="capacity" min="1" value="8" style="max-width: 200px;">
+                    </div>
+                    
+                    <div class="mb-3">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <label class="form-label mb-0">Items</label>
+                            <button type="button" class="btn btn-outline-primary btn-sm" id="addItemBtn">
+                                <i class="bi bi-plus"></i> Add Item
+                            </button>
+                        </div>
+                        
+                        <div id="itemsContainer" class="mb-3">
+                            <!-- Items will be added here dynamically -->
+                        </div>
+                        
+                        <div id="errorMessage" class="text-danger small"></div>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary" id="initializeBtn">Initialize Visualization</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Visualization Section (initially hidden) -->
+        <div id="visualizationSection" style="display: none;">
+            <!-- DP Table -->
+            <div class="card mb-4">
+                <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+                    <h2 class="h5 mb-0">Dynamic Programming Table</h2>
+                    <button class="btn btn-outline-light btn-sm" id="resetBtn">
+                        <i class="bi bi-arrow-counterclockwise"></i> Reset
+                    </button>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <div id="dpTableContainer"></div>
+                    </div>
+                    
+                    <div class="d-flex justify-content-center mt-4">
+                        <button class="btn btn-success" id="animateBtn">
+                            Start Animation
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Explanation -->
+            <div class="card mb-4">
+                <div class="card-header bg-primary text-white">
+                    <h2 class="h5 mb-0">Algorithm Summary</h2>
+                </div>
+                <div class="card-body">
+                    <div id="algorithmSummary" style="display: none;">
+                        <div class="card bg-success bg-opacity-10 border-success mb-4">
+                            <div class="card-body">
+                                <h3 class="h5 fw-bold mb-3">Final Solution</h3>
+                                <p>The maximum value that can be obtained is <strong id="finalMaxValue"></strong>.</p>
+                                
+                                <h4 class="h6 fw-bold mt-3 mb-2">Selected Items:</h4>
+                                <ul id="finalSelectedItems" class="ps-4"></ul>
+                                
+                                <h4 class="h6 fw-bold mt-3 mb-2">Total Weight:</h4>
+                                <p id="totalWeight" class="mb-0"></p>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h3 class="h5 fw-bold mb-3">Time and Space Complexity</h3>
+                            <ul class="ps-4">
+                                <li class="mb-1"><strong>Time Complexity:</strong> O(n × W) where n is the number of items and W is the knapsack capacity.</li>
+                                <li class="mb-1"><strong>Space Complexity:</strong> O(n × W) for the dynamic programming table.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="script.js"></script>
+</body>
+</html>
