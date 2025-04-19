@@ -13,7 +13,7 @@ let selectedItems = [];
 let isComplete = false;
 let isAnimating = false;
 let animationTimeout = null;
-const ANIMATION_SPEED = 100;
+const ANIMATION_SPEED = 500;
 
 // DOM Elements
 document.addEventListener('DOMContentLoaded', function() {
